@@ -51,7 +51,7 @@ public class CalcReflex {
                 outputLine = "HTTP/1.1 200 OK\r\n"
                         + "Content-Type: application/json\r\n"
                         + "\r\n"
-                        + "{name:\"John\", age:31, city:\"New York\"}";
+                        + Math.PI;
             } else {
                 outputLine = getDefaultResponse();
             }
@@ -72,7 +72,7 @@ public class CalcReflex {
         Class c = Math.class;
         Class[] parameterTypes = {double.class};
         Method m = c.getDeclaredMethod("abs", parameterTypes);
-        Object[] params = {-2,0};
+        Object[] params = {-2, 0};
         String resp = m.invoke(null, (Object) params).toString();
         return "";
     }
@@ -115,5 +115,29 @@ public class CalcReflex {
                 + "</html>";
         return htmlcode;
     }
+
+    public void bubbleSort(int[] arr) {
+        int n = arr.length;
+        boolean swapped;
+
+        for (int i = 0; i < n - 1; i++) {
+            swapped = false;
+
+            for (int j = 0; j < n - i - 1; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    // Intercambiar arr[j] y arr[j + 1]
+                    int temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                    swapped = true;
+                }
+            }
+
+            // Si no hubo intercambio, el array ya está ordenado
+            if (!swapped) break;
+        }
+    }
+}
+
 }
 
